@@ -58,3 +58,7 @@ nav {
   right: 0.5rem;
   color: white;
 }
+
+.item-delete {
+  cursor: pointer;
+}
