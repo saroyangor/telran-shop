@@ -49,6 +49,7 @@ nav {
   width: 50rem;
   background-color: white;
   max-width: 95%;
+  animation: show 500ms;
 }
 
 .basket-close {
@@ -60,5 +61,34 @@ nav {
 }
 
 .item-delete {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.item-delete i {
   cursor: pointer;
+  color: #673ab7;
+}
+
+.basket-item {
+  display: flex;
+  align-items: center;
+}
+
+.item-change {
+  cursor: pointer;
+  color: #673ab7;
+  user-select: none;
+}
+
+@keyframes show {
+  from {
+    top: 70%;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
 }
