@@ -4,12 +4,14 @@ import Loader from './Loader'
 import GoodsList from './GoodsList'
 import Cart from './Cart'
 import BasketList from './BasketList'
+import Alert from "./Alert";
 
 const Shop = () => {
   const [goods, setGoods] = useState([])
   const [loading, setLoading] = useState(true)
   const [order, setOrder] = useState([])
   const [isBasketShow, setBasketShow] = useState(false)
+  const [alertText, setAlertText] = useState('')
 
   const addToBasket = (item) => {
     const itemIndex = order.findIndex((orderItem) => orderItem.id === item.id)
@@ -35,6 +37,8 @@ const Shop = () => {
 
       setOrder(newOrder)
     }
+
+    setAlertText(`${item.name} добавлен в корзину`)
   }
 
   const removeFromBasket = (itemId) => {
@@ -69,6 +73,10 @@ const Shop = () => {
     setBasketShow(!isBasketShow)
   }
 
+  const closeAlert = () => {
+    setAlertText('')
+  }
+
   useEffect(() => {
     fetch(API_URL, {
       headers: {
@@ -97,6 +105,9 @@ const Shop = () => {
           changeQuantity={changeQuantity}
         />
       ) : null}
+      {
+        alertText ? <Alert text={alertText} closeAlert={closeAlert} /> : null
+      }
     </main>
   )
 }

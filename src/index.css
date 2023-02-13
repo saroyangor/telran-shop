@@ -33,7 +33,7 @@ nav {
 
 .cart {
   position: fixed;
-  bottom: 2rem;
+  top: 5rem;
   right: 2rem;
   cursor: pointer;
   z-index: 10;
@@ -82,6 +82,11 @@ nav {
   user-select: none;
 }
 
+#toast-container {
+  top: 2.5rem !important;
+  animation: fade-in 250ms;
+}
+
 @keyframes show {
   from {
     top: 70%;
@@ -90,5 +95,16 @@ nav {
   to {
     top: 50%;
     opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
